@@ -1,67 +1,59 @@
 # python-nmap-port_scanner
-Scan de Ports avec Nmap et Python
-Ce projet implémente un scanner de ports simple en utilisant nmap et Python. Il permet de scanner les 1000 premiers ports d'une cible et de sauvegarder les résultats dans un fichier texte. Le script détecte également les services associés à chaque port, ainsi que leur état et leur version.
-Fonctionnalités
 
-    Scan de ports : Scanne les 1000 premiers ports TCP de la cible spécifiée.
-    Affichage des résultats : Affiche les résultats dans la console avec des informations sur chaque port détecté (service, état, version).
-    Sauvegarde dans un fichier : Enregistre les résultats du scan dans un fichier scan_results.txt.
-    Gestion des erreurs : Le script gère les erreurs liées à la connexion et au processus de scan.
+Ce script Python réalise un audit de sécurité sur une machine cible en analysant les services réseau ouverts et en identifiant les éventuelles vulnérabilités connues.
 
-Prérequis
+## 🔍 Fonctionnalités
+- **Scan des ports ouverts** avec `nmap`
+- **Identification des services et versions**
+- **Détection des vulnérabilités connues** (via une base de données JSON)
+- **Analyse des permissions critiques sur le système**
+- **Génération automatique d'un rapport d'audit**
 
-    Python 3.x
-    Nmap
-    Module python-nmap installé
+## 🚀 Installation
+### Prérequis
+- Python 3
+- `nmap` installé sur votre machine (`sudo apt install nmap` sous Linux)
+- Bibliothèques Python nécessaires :
+  ```bash
+  pip install python-nmap
+  ```
 
-Installation de python-nmap
+### Cloner le dépôt
+```bash
+git clone https://github.com/DimitriNGAPGUE/Audit_de_Securite.git
 
-Pour installer le module Python nécessaire, utilisez la commande suivante :
+## 🔧 Utilisation
+Exécutez le script avec `sudo` pour avoir les permissions nécessaires :
+```bash
+sudo python3 audit.py
+```
+Saisissez l'adresse IP cible lorsque le script le demande.
 
-pip install python-nmap
+### Exemple de sortie
+```
+Entrez l'adresse IP cible : 192.168.1.54
+Scanning 192.168.1.54 en cours...
 
-Installation de Nmap
+Rapport d'audit généré : audit_securite_report.txt
+```
 
-Si Nmap n'est pas installé sur votre machine, vous pouvez l'installer via :
+## 📄 Structure du Projet
+```
+📂 audit-securite
+├── audit.py               # Script principal
+├── vuln_db.json           # Base de données des vulnérabilités connues
+├── README.md              # Documentation
+├── requirements.txt       # Liste des dépendances
+└── scan_results/          # Dossier contenant les rapports générés
+```
 
-    Sur Debian/Ubuntu :
+## 📌 Améliorations possibles
+- Intégrer `nmap --script vuln` pour une détection automatique des CVE
+- Ajouter un export JSON du rapport d’audit
+- Automatiser l’envoi du rapport par e-mail
 
-    sudo apt install nmap
+## 🛠 Auteur
+- **Dimitri** – [GitHub](https://github.com/DimitriNGAPGUE)
 
-    Sur Windows/Mac :
-    Vous pouvez télécharger et installer Nmap depuis le site officiel.
+N’hésitez pas à contribuer ! 🚀
 
-Utilisation
-
-    Clonez ce repository ou téléchargez le fichier scan.py.
-    Exécutez le script Python en utilisant la commande suivante :
-
-    python3 scan.py
-
-    Entrez l'adresse IP cible lorsque le script le demande.
-    Le script procédera au scan et affichera les résultats dans la console.
-    Un fichier scan_results.txt sera créé dans le répertoire du projet, contenant les résultats détaillés du scan.
-
-Exemple de sortie
-
-Scanning 192.168.1.1 en cours...
-
-✅ Résultats pour 192.168.1.1 :
-
-Port 22 : ssh (open) - Version: OpenSSH 7.2p2
-Port 80 : http (open) - Version: Apache 2.4.18
-📂 Résultats enregistrés dans 'scan_results.txt'.
-
-Résultats dans le fichier scan_results.txt :
-
-Résultats du scan pour 192.168.1.1 :
-Port 22 : ssh (open) - Version: OpenSSH 7.2p2
-Port 80 : http (open) - Version: Apache 2.4.18
-
-Gestion des erreurs
-
-Le script prend en charge les erreurs suivantes :
-
-    L'hôte n'est pas accessible.
-    Aucun port TCP ouvert détecté.
-    Autres erreurs liées au processus de scan.
