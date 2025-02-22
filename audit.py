@@ -73,7 +73,7 @@ def check_permissions():
         if os.path.exists(file):
             perms = os.popen(f"ls -l {file}").read().strip()
             if 'root' not in perms:
-                permissions_issues.append(f"Fichier {file} : permissions trop larges !")
+                permissions_issues.append(f"Fichier {file} : permissions trop larges!")
     
     return permissions_issues
 
