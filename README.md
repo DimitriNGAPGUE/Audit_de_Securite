@@ -1,4 +1,4 @@
-# python-nmap-port_scanner
+# Audit de Sécurité Réseau et Système
 
 Ce script Python réalise un audit de sécurité sur une machine cible en analysant les services réseau ouverts et en identifiant les éventuelles vulnérabilités connues.
 
@@ -21,6 +21,7 @@ Ce script Python réalise un audit de sécurité sur une machine cible en analys
 ### Cloner le dépôt
 ```bash
 git clone https://github.com/DimitriNGAPGUE/Audit_de_Securite.git
+```
 
 ## 🔧 Utilisation
 Exécutez le script avec `sudo` pour avoir les permissions nécessaires :
@@ -53,7 +54,7 @@ Rapport d'audit généré : audit_securite_report.txt
 - Automatiser l’envoi du rapport par e-mail
 
 ## 🛠 Auteur
-- **Dimitri** – [GitHub](https://github.com/DimitriNGAPGUE)
+- **Dimitri** – [GitHub](https://https://github.com/DimitriNGAPGUE)
 
 N’hésitez pas à contribuer ! 🚀
 
